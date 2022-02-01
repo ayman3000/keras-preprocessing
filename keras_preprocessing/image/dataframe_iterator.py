@@ -104,6 +104,7 @@ class DataFrameIterator(BatchFromFilesMixin, Iterator):
                  image_data_generator=None,
                  x_col="filename",
                  y_col="class",
+                 bbox_col="bbox",
                  weight_col=None,
                  target_size=(256, 256),
                  color_mode='rgb',
