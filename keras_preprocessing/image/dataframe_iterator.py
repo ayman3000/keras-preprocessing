@@ -162,6 +162,9 @@ class DataFrameIterator(BatchFromFilesMixin, Iterator):
             self._targets = [np.array(df[col].tolist()) for col in y_col]
         if class_mode == "raw":
             self._targets = df[y_col].values
+        # add bound box col
+        self.bbox = df[bbox_col].values
+
         self.samples = len(self.filenames)
         validated_string = 'validated' if validate_filenames else 'non-validated'
         if class_mode in ["input", "multi_output", "raw", None]:

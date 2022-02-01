@@ -54,6 +54,7 @@ class NumpyArrayIterator(Iterator):
     def __init__(self,
                  x,
                  y,
+                 bbox,
                  image_data_generator,
                  batch_size=32,
                  shuffle=False,
@@ -139,6 +140,12 @@ class NumpyArrayIterator(Iterator):
             self.y = np.asarray(y)
         else:
             self.y = None
+
+        if bbox is not None:
+            self.bbox = np.asarray(bbox)
+        else:
+            self.bbox = None
+
         if sample_weight is not None:
             self.sample_weight = np.asarray(sample_weight)
         else:
@@ -179,6 +186,10 @@ class NumpyArrayIterator(Iterator):
         if self.y is None:
             return output[0]
         output += (self.y[index_array],)
+        
+        if self.bbox is None:
+            return output[0]
+        output += (self.bbox[index_array],)
         if self.sample_weight is not None:
             output += (self.sample_weight[index_array],)
         return output
