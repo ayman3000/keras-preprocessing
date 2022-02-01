@@ -186,7 +186,7 @@ class NumpyArrayIterator(Iterator):
         if self.y is None:
             return output[0]
         output += (self.y[index_array],)
-        
+
         if self.bbox is None:
             return output[0]
         output += (self.bbox[index_array],)

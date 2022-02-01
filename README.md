@@ -1,4 +1,7 @@
 # Keras Preprocessing
+This is my fork for object detection dataframe generator purpose.
+
+My contribution is trying to add a bounding box field to be generated also.
 
 [![Build Status](https://travis-ci.org/keras-team/keras-preprocessing.svg?branch=master)](https://travis-ci.org/keras-team/keras-preprocessing)
 
